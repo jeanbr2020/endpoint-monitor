@@ -163,9 +163,3 @@ If you wish to modify or distribute this software, please read the [LICENSE](LIC
 ## License
 
 MIT License — see [LICENSE](LICENSE) for details.
-
----
-
-## Author
-
-**Jean Silva** — [github.com/jeanbr2020](https://github.com/jeanbr2020)
