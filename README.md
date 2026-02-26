@@ -1,4 +1,4 @@
-# API Monitor
+# Endpoint Monitor
 
 A lightweight open source CLI tool to monitor REST API endpoints, check their availability, measure response times and generate detailed reports.
 
@@ -26,7 +26,7 @@ A lightweight open source CLI tool to monitor REST API endpoints, check their av
 ## Installation
 
 ```bash
-pip install api-monitor
+pip install endpoint-monitor
 ```
 
 ---
@@ -36,20 +36,20 @@ pip install api-monitor
 ### Basic — display results in terminal
 
 ```bash
-api-monitor endpoints.json
+endpoint-monitor endpoints.json
 ```
 
 ### Save report to JSON file
 
 ```bash
-api-monitor endpoints.json --output report.json
-api-monitor endpoints.json -o report.json
+endpoint-monitor endpoints.json --output report.json
+endpoint-monitor endpoints.json -o report.json
 ```
 
 ### Help
 
 ```bash
-api-monitor --help
+endpoint-monitor --help
 ```
 
 ---
@@ -61,24 +61,24 @@ You do not need to be in the same folder as the file — just pass the correct p
 
 **File in the current folder:**
 ```bash
-api-monitor endpoints.json
+endpoint-monitor endpoints.json
 ```
 
 **File in another folder (Linux/Mac):**
 ```bash
-api-monitor ~/Documents/endpoints.json
-api-monitor /home/yourname/projects/endpoints.json
+endpoint-monitor ~/Documents/endpoints.json
+endpoint-monitor /home/yourname/projects/endpoints.json
 ```
 
 **File in another folder (Windows):**
 ```bash
-api-monitor C:\Users\YourName\Documents\endpoints.json
+endpoint-monitor C:\Users\YourName\Documents\endpoints.json
 ```
 
 **Tip:** The easiest way is to navigate to the folder where your file is and run the command from there.
 ```bash
 cd C:\Users\YourName\Documents
-api-monitor endpoints.json
+endpoint-monitor endpoints.json
 ```
 
 ---

@@ -25,3 +25,5 @@ report.json
 # OS
 .DS_Store
 Thumbs.db
+
+token

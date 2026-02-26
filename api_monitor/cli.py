@@ -8,7 +8,7 @@ from api_monitor.reporter import generate_report
 
 
 app = typer.Typer(
-    name="api-monitor",
+    name="endpoint-monitor",
     help="A CLI tool to monitor REST API endpoints."
 )
 
@@ -21,9 +21,9 @@ def run(
         ...,
         help=(
             "Path to the JSON file containing the endpoints. "
-            "Examples: 'api-monitor endpoints.json' if the file is in the current folder, "
-            "'api-monitor ~/Documents/endpoints.json' for a file in another folder, "
-            "or 'api-monitor C:\\Users\\YourName\\endpoints.json' on Windows."
+            "Examples: 'endpoint-monitor endpoints.json' if the file is in the current folder, "
+            "'endpoint-monitor ~/Documents/endpoints.json' for a file in another folder, "
+            "or 'endpoint-monitor C:\\Users\\YourName\\endpoints.json' on Windows."
         ),
         exists=True,
         readable=True
@@ -41,10 +41,10 @@ def run(
     The file can be in the current directory or anywhere on your system.
 
     Examples:\n
-        api-monitor endpoints.json\n
-        api-monitor ~/Documents/endpoints.json\n
-        api-monitor C:\\\\Users\\\\YourName\\\\endpoints.json\n
-        api-monitor endpoints.json --output report.json
+        endpoint-monitor endpoints.json\n
+        endpoint-monitor ~/Documents/endpoints.json\n
+        endpoint-monitor C:\\\\Users\\\\YourName\\\\endpoints.json\n
+        endpoint-monitor endpoints.json --output report.json
     """
     try:
         endpoints = load_endpoints(str(file))
