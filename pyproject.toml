@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "endpoint-monitor"
-version = "0.2.0"
+version = "0.3.0"
 description = "A CLI tool to monitor REST API endpoints"
 readme = "README.md"
 license = "MIT"
@@ -17,8 +17,8 @@ dependencies = [
 ]
 
 [project.scripts]
-endpoint-monitor = "api_monitor.cli:main"
+endpoint-monitor = "endpoint_monitor.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["api_monitor*"]
+include = ["endpoint_monitor*"]

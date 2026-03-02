@@ -2,9 +2,9 @@ from pathlib import Path
 from typing import Optional
 import typer
 from rich.console import Console
-from api_monitor.loader import load_endpoints
-from api_monitor.monitor import run_monitor
-from api_monitor.reporter import generate_report
+from endpoint_monitor.monitor import run_monitor
+from endpoint_monitor.reporter import generate_report
+from endpoint_monitor.loader import load_endpoints
 
 
 app = typer.Typer(

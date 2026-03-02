@@ -1,6 +1,6 @@
 import requests
 from datetime import datetime
-from api_monitor.models import Endpoint, CheckResult
+from endpoint_monitor.models import Endpoint, CheckResult
 
 
 def check_endpoint(endpoint: Endpoint) -> CheckResult:

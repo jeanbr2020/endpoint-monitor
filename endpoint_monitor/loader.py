@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from api_monitor.models import Endpoint
+from endpoint_monitor.models import Endpoint
 
 def load_endpoints(file_path: str) -> list[Endpoint]:
     path = Path(file_path)

@@ -3,8 +3,8 @@ import pytest
 from pathlib import Path
 from datetime import datetime
 from unittest.mock import patch
-from api_monitor.reporter import generate_report, _result_to_dict
-from api_monitor.models import Endpoint, CheckResult
+from endpoint_monitor.models import Endpoint, CheckResult
+from endpoint_monitor.reporter import generate_report, _result_to_dict
 
 
 @pytest.fixture

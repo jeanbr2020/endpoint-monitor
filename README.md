@@ -63,7 +63,7 @@ endpoint-monitor --help
 You can also import and use `endpoint-monitor` directly in your Python projects:
 
 ```python
-from api_monitor import scan
+from endpoint_monitor import scan
 
 # Run monitor and get results
 results = scan("endpoints.json")

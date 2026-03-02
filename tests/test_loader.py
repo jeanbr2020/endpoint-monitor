@@ -1,8 +1,8 @@
 import json
 import pytest
 from pathlib import Path
-from api_monitor.loader import load_endpoints
-from api_monitor.models import Endpoint
+from endpoint_monitor.loader import load_endpoints
+from endpoint_monitor.models import Endpoint
 
 
 def test_load_valid_endpoints(tmp_path):

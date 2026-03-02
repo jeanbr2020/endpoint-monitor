@@ -4,7 +4,7 @@ from pathlib import Path
 from rich.console import Console
 from rich.table import Table
 from rich import box
-from api_monitor.models import CheckResult
+from endpoint_monitor.models import CheckResult
 
 console = Console()
 

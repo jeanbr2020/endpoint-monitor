@@ -1,6 +1,6 @@
 from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn
-from api_monitor.checker import check_endpoint
-from api_monitor.models import Endpoint, CheckResult
+from endpoint_monitor.models import Endpoint, CheckResult
+from endpoint_monitor.checker import check_endpoint
 
 
 def run_monitor(endpoints: list[Endpoint]) -> list[CheckResult]:

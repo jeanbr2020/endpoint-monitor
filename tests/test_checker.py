@@ -1,8 +1,8 @@
 import pytest
 from unittest.mock import patch, MagicMock
 from datetime import datetime
-from api_monitor.checker import check_endpoint, _is_success
-from api_monitor.models import Endpoint, CheckResult
+from endpoint_monitor.checker import check_endpoint, _is_success
+from endpoint_monitor.models import Endpoint, CheckResult
 import requests
 
 
