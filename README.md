@@ -1,6 +1,6 @@
 # Endpoint Monitor
 
-A lightweight open source CLI tool to monitor REST API endpoints, check their availability, measure response times and generate detailed reports.
+A lightweight open source CLI tool and Python library to monitor REST API endpoints, check their availability, measure response times and generate detailed reports.
 
 > ⚠️ **Important:** This project is intended for personal use, studies and testing environments. It is **not recommended for use in production or corporate environments** without prior extensive testing. Do not use this tool with endpoints that handle sensitive data without fully understanding the risks involved. The developer is not responsible for any damage, data loss or unexpected behavior resulting from the use or modification of this software. See the [LICENSE](LICENSE) for more details.
 
@@ -13,7 +13,9 @@ A lightweight open source CLI tool to monitor REST API endpoints, check their av
 - Real-time progress bar in the terminal
 - Formatted table output with status, response time and result
 - Optional JSON report export
+- Safe file handling — prompts before overwriting existing report files
 - Clear error messages for timeouts and connection failures
+- Can be used as a CLI tool or imported as a Python library
 
 ---
 
@@ -33,24 +35,83 @@ pip install endpoint-monitor
 
 ## Usage
 
-### Basic — display results in terminal
+### CLI
+
+#### Basic — display results in terminal
 
 ```bash
 endpoint-monitor endpoints.json
 ```
 
-### Save report to JSON file
+#### Save report to JSON file
 
 ```bash
 endpoint-monitor endpoints.json --output report.json
 endpoint-monitor endpoints.json -o report.json
 ```
 
-### Help
+#### Help
 
 ```bash
 endpoint-monitor --help
 ```
+
+---
+
+### Python Library
+
+You can also import and use `endpoint-monitor` directly in your Python projects:
+
+```python
+from api_monitor import scan
+
+# Run monitor and get results
+results = scan("endpoints.json")
+
+# Run monitor and save JSON report
+results = scan("endpoints.json", output="report.json")
+```
+
+Each result in the list contains:
+
+| Field | Type | Description |
+|---|---|---|
+| `endpoint.name` | string | Endpoint display name |
+| `endpoint.url` | string | Endpoint URL |
+| `endpoint.method` | string | HTTP method |
+| `status_code` | int or None | HTTP response status code |
+| `response_time_ms` | float or None | Response time in milliseconds |
+| `success` | bool | Whether the request succeeded |
+| `error_message` | string or None | Error description if failed |
+| `checked_at` | datetime | Timestamp of the check |
+
+---
+
+## Safe file handling
+
+When using `--output` and the specified file already exists, the tool will prompt you with the following options:
+
+```
+⚠️  Warning: 'report.json' already exists in the current directory.
+What do you want to do?
+  [r] Rename
+  [o] Overwrite
+  [c] Cancel
+```
+
+If you choose **Rename**, you will be asked for a new filename. If the new name also exists, the tool will ask again until a unique name is provided.
+
+If you choose **Overwrite**, a confirmation prompt will appear before proceeding:
+
+```
+⚠️  Are you sure you want to overwrite 'report.json'? This action cannot be undone.
+  [y] Yes, overwrite
+  [b] Back to options
+```
+
+If you choose **Cancel**, no file will be saved and the operation is aborted safely.
+
+Any input other than the listed options will be rejected and the prompt will repeat.
 
 ---
 
@@ -133,6 +194,7 @@ Total: 3  Success: 2  Failed: 1
 
 ```
 api_monitor/
+├── __init__.py   # Public library interface
 ├── cli.py        # CLI entry point
 ├── monitor.py    # Orchestrates the monitoring flow
 ├── checker.py    # Performs HTTP requests and returns results
@@ -149,6 +211,18 @@ api_monitor/
 pip install pytest
 pytest tests/ -v
 ```
+
+---
+
+## Changelog
+
+### v0.2.0
+- Added public `scan()` function — `endpoint-monitor` can now be used as a Python library
+- Added safe file handling for JSON report export — prompts to rename, overwrite or cancel when file already exists
+- Added input validation on all prompts — invalid options are rejected and the prompt repeats
+
+### v0.1.0
+- Initial release
 
 ---
 

@@ -6,6 +6,8 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+run.py
+*.txt
 
 # Build and distribution
 *.egg-info/
